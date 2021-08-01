@@ -1,0 +1,38 @@
+{
+  // IntelliSense を使用して利用可能な属性を学べます。
+  // 既存の属性の説明をホバーして表示します。
+  // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Jest Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/oauth/node_modules/.bin/jest",
+        "--runInBand",
+        "-c",
+        "${workspaceRoot}/oauth/jest.config.ts"
+      ],
+      "console": "integratedTerminal",
+      "preLaunchTask": "tsc: build - oauth/tsconfig.json",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "node(コンテナデバック)",
+      "preLaunchTask": "npm: build",
+      "program": "${workspaceFolder}/oauth/dist/index.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "node(リモートサーバーデバック)",
+      "preLaunchTask": "tsc: build - oauth/tsconfig.json",
+      "program": "${workspaceFolder}/oauth/dist/index.js"
+    }
+  ]
+}

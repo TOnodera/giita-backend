@@ -1,0 +1,24 @@
+version: "3"
+services:
+  oauth:
+    build: ./oauth/
+    ports:
+      - 3000:3000
+      - 8080:8080
+    tty: true
+    environment:
+      - TZ=${TZ}
+      - CLIENT_ID=${CLIENT_ID}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+      - REDIRECT_URI=${REDIRECT_URI}
+      - SCOPE=${SCOPE}
+      - APP_URL=${APP_URL}
+      - GITHUB_URL=${GITHUB_URL}
+      - GITHUB_TOKEN_EXPIRE_LIMIT=${GITHUB_TOKEN_EXPIRE_LIMIT}
+      - BASIC_AUTH_ID=${BASIC_AUTH_ID}
+      - BASIC_AUTH_PASS=${BASIC_AUTH_PASS}
+      - GITHUB_TEST_TOKEN=${GITHUB_TEST_TOKEN}
+    volumes:
+      - ./:/home/node/giita-backend
+    extra_hosts:
+      - "host.docker.internal:192.168.1.7"

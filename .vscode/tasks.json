@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "build",
+      "path": "oauth/",
+      "group": "build",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "label": "npm: build",
+      "detail": "$(npm bin)/tsc"
+    },
+    {
+      "type": "npm",
+      "script": "start",
+      "path": "oauth/",
+      "group": "build",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "label": "npm: start",
+      "detail": "npm build && node ./dist/index.js"
+    },
+    {
+      "type": "typescript",
+      "tsconfig": "oauth/tsconfig.json",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "group": "build",
+      "label": "tsc: build - oauth/tsconfig.json"
+    }
+  ]
+}
